@@ -10,13 +10,13 @@
     <div class="container">
         <div class="studentDetails">
             <div class="studentInfo">
-                <div class="student">Name : Default </div>
-                <div class="student">Branch : Default</div>
-                <div class="student">Email : Deafult@gmail.com</div>
+                <div class="student">Name : <%= data[0].first_name %> <%= data[0].last_name %> </div>
+                <div class="student">Email : <%= data[0].email %></div>
+                <div class="student">USN : <%= data[0].usn %></div>
             </div>
             <div class="logo"><img class="studlogo" src="images/LMS-removebg-preview.png" alt=""></div>
             <div class="studentInfo">
-                <div class="penalties">Penalty : 10000&#8377</div>
+                <div class="penalties">Penalty : <%= data[0].fine_amount %> &#8377</div>
                 <div class="logoutContainer">
                     <form action="#" method="post"><button class="studentLogout">logout</button></form></div>
             </div>
@@ -24,48 +24,40 @@
         <div class="booksIssued">
             <h3 class="heading3text">Books Issued: </h3>
             <div class="booksDetails">
-                <div class="bookContainer">
-                    <div class="book">ABc</div>
-                    <div class="book">def</div>
-                    <div class="book">ghr</div>
-                    <div class="book">10/10/2023</div>
-                </div>
-                <div class="bookContainer">
-                    <div class="book">ABc</div>
-                    <div class="book">def</div>
-                    <div class="book">ghr</div>
-                    <div class="book">10/10/2023</div>
-                </div>
-                <div class="bookContainer">
-                    <div class="book">ABc</div>
-                    <div class="book">def</div>
-                    <div class="book">ghr</div>
-                    <div class="book">10/10/2023</div>
-                </div>
-                <div class="bookContainer">
-                    <div class="book">ABc</div>
-                    <div class="book">def</div>
-                    <div class="book">ghr</div>
-                    <div class="book">10/10/2023</div>
-                </div>
-                <div class="bookContainer">
-                    <div class="book">ABc</div>
-                    <div class="book">def</div>
-                    <div class="book">ghr</div>
-                    <div class="book">10/10/2023</div>
-                </div>
-                <div class="bookContainer">
-                    <div class="book">ABc</div>
-                    <div class="book">def</div>
-                    <div class="book">ghr</div>
-                    <div class="book">10/10/2023</div>
-                </div>
-                <div class="bookContainer">
-                    <div class="book">ABc</div>
-                    <div class="book">def</div>
-                    <div class="book">ghr</div>
-                    <div class="book">10/10/2023</div>
-                </div>
+                <table>
+                    <tr class="tableHeader">
+                        <th class="tableLabel">Transaction ID </th>
+                        <th class="tableLabel">USN</th>
+                        <th class="tableLabel">Book Name</th>
+                        <th class="tableLabel">Transaction Date</th>
+                        <th class="tableLabel">Due Date</th>
+                        <th class="tableLabel">Action</th>
+
+                    </tr>
+                     <% data.forEach(item=> { %>
+                        <tr class="tableData">
+                            <td class="dataItem">
+                                <%= item.transaction_id %>
+                            </td>
+                            <td class="dataItem">
+                                <%= item.usn %>
+                            </td>
+                            <td class="dataItem">
+                                <%= item.book_name %>
+                            </td>
+                            <td class="dataItem">
+                                <%= item.transaction_date %>
+                            </td>
+                            <td class="dataItem">
+                                <%= item.due_date %>
+                            </td>
+                            <td class="dataItem">
+                                <%= item.fine_amount %>
+                                </td>      
+                        </tr>
+                        <% }); %>
+                   
+                </table>
             </div>
 
         </div>

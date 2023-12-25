@@ -94,10 +94,10 @@ body {
 }
 .booksDetails{
     /* border-bottom: 2px solid red; */
-    padding:1rem;
+    /* padding:1rem; */
     background-color: #ffffff6c;
     height: 35vh;
-    overflow: hidden;
+    overflow: auto;
     overflow-y: auto;
     border-radius: 10px;
     /* width: 50rem; */
@@ -149,6 +149,63 @@ body {
     height: 200px;
     width: 200px;
 }
+
+
+table{
+    height: 100%;
+    background-color: #0000004d;
+    width: 100%;
+    
+}
+.tableHeader{
+    /* border:5px solid red; */
+    width: 100%;
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding : 0.7rem 0;
+    position: sticky;
+    top: 0;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+
+}
+
+.tableData{
+    /* border:2px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    background-color: orange;
+    padding : 0.7rem 0;
+    /* border-bottom:1px solid #000; */
+    box-shadow: 1px 4px 10px 4px #000;
+    cursor: pointer;
+
+}
+.tableData:hover{
+    background-color: rgb(227, 154, 19);
+}
+
+.dataItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 10rem;
+    height:2rem;
+    /* border: 2px solid blue; */
+    
+}
+
+.tableLabel{
+    width: 10rem;
+    /* background-color: red; */
+}
+
 
 
     @media only screen and (max-width: 850px) {

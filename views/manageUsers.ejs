@@ -82,6 +82,15 @@
                             <button id="deleteBookBtn" name='deleteBook'><i
                                     class="deleteBook fa-solid fa-trash"></i></button>
                         </form>
+                        <form action="/manageUsers/generatePdf" method="post">
+                            <!-- <input type="hidden" name="usn" id="" placeholder="Enter Usn" required autocomplete="off"> -->
+                            <input type="hidden" name="fname" value="<%= item.first_name %>" >
+                            <input type="hidden" name="lname" value="<%= item.last_name %>" >
+                            <input type="hidden" name="email"  value=" <%= item.email %>">
+                            <input type="hidden" name="pnumber" value="<%= item.phone_number %>">
+                            <input type="hidden" name="address" value=" <%= item.address%>">
+                            <button id="pdfbtn" class="text-2xl text-purple-800"><i class="fa-regular fa-address-card"></i></button>
+                        </form>
                     </td>
                 </tr>
                 <% }); %>

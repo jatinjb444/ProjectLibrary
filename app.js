@@ -2,10 +2,15 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const flash = require("connect-flash");
+const ejs = require('ejs');
+const pdf = require('html-pdf');
+const path = require('path');
 const homeRoute = require('./routes/homeRoute')
 const adminlogin = require('./routes/adminLogin');
 const managebooks = require('./routes/manageBooks')
 const manageUsers = require("./routes/manageUsers");
+const adminLogs = require("./routes/adminLogs");
+const issueBook = require("./routes/issueBook");
 
 
 const app = express();
@@ -36,10 +41,14 @@ app.use("/",adminlogin);
 // handling routes of manage Books -----------------
 app.use("/",managebooks);
 
-// routes to handle admin dashboard
+// routes to handle admin dashboard ----------------
 app.use("/",manageUsers);
 
+// routes to handle admin logs ---------------------
+app.use("/",adminLogs);
 
+// routes to issue book ----------------------------
+app.use("/",issueBook);
 
 
 

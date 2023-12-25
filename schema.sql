@@ -57,3 +57,8 @@ CREATE TABLE transactions (
     FOREIGN KEY (usn) REFERENCES users(usn),
     FOREIGN KEY (book_id) REFERENCES books(book_id)
 );
+
+CREATE TABLE logs(
+    logid INT PRIMARY KEY AUTO_INCREMENT,
+    logvalue VARCHAR(300)
+);
