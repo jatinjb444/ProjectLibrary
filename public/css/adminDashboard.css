@@ -14,7 +14,7 @@ html{
 
 }
 body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background: linear-gradient(-45deg, #ee7752, #23a6d5, #ee7752, #23a6d5);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
@@ -87,7 +87,7 @@ body {
 }
 
 .operationsContainer{
-    height:70vh;
+    height:50vh;
     background-color: rgba(0, 0, 0, 0.381) ;
     padding:2rem;
     display: flex;

@@ -1,7 +1,10 @@
 const mysql = require("mysql2");
 const dotenv = require("dotenv");
-
 dotenv.config();
+
+const currentDate = new Date();
+const formattedDate = currentDate.toISOString().slice(0, 10);
+const currentTime = currentDate.toLocaleTimeString();
 
 const pool = mysql
   .createPool({
@@ -35,7 +38,7 @@ async function insertBook(
 
   const updatelog = await pool.query(
     `
-    INSERT INTO logs (logvalue) VALUES("Inserted book with ISBN ?")
+    INSERT INTO logs (logvalue) VALUES("Inserted book with ISBN ? Date : ${formattedDate} ${currentTime}")
     `,
     [isbn]
   );
@@ -59,7 +62,7 @@ async function deleteBook(bookid) {
   );
   const updatelog = await pool.query(
     `
-    INSERT INTO logs (logvalue) VALUES("Deleted book with ID ?")
+    INSERT INTO logs (logvalue) VALUES("Deleted book with ID ? Date : ${formattedDate} ${currentTime}")
     `,
     [bookid]
   );
@@ -98,7 +101,7 @@ async function editBook(
   );
   const updatelog = await pool.query(
     `
-    INSERT INTO logs (logvalue) VALUES("updated book with ID ?")
+    INSERT INTO logs (logvalue) VALUES("updated book with ID ? Date : ${formattedDate} ${currentTime}")
     `,
     [bookid]
   );
@@ -172,7 +175,7 @@ async function deleteUser(usn) {
     `);
   const updatelog = await pool.query(
     `
-    INSERT INTO logs (logvalue) VALUES("Deleted user with USN ?")
+    INSERT INTO logs (logvalue) VALUES("Deleted user with USN ? Date : ${formattedDate} ${currentTime}")
     `,
     [usn]
   );
@@ -201,7 +204,7 @@ async function addUser(usn, fname, lname, email, pnumber, address, password) {
 
   const updatelog = await pool.query(
     `
-    INSERT INTO logs (logvalue) VALUES("Added user with USN ?")
+    INSERT INTO logs (logvalue) VALUES("Added user with USN ? Date : ${formattedDate} ${currentTime}")
     `,
     [usn]
   );
@@ -236,7 +239,7 @@ async function editUser(
   }
   const updatelog = await pool.query(
     `
-    INSERT INTO logs (logvalue) VALUES("Edited user with USN ?")
+    INSERT INTO logs (logvalue) VALUES("Edited user with USN ? Date : ${formattedDate} ${currentTime}")
     `,
     [usn]
   );
@@ -275,7 +278,7 @@ async function issueBook(usn, bid) {
   );
   const updatelog = await pool.query(
     `
-    INSERT INTO logs (logvalue) VALUES("Issued book to  user with USN ?")
+    INSERT INTO logs (logvalue) VALUES("Issued book to  user with USN ? Date : ${formattedDate} ${currentTime}")
     `,
     [usn]
   );
@@ -312,13 +315,40 @@ async function showUserTransaction(usn) {
 
   const updatelog = await pool.query(
     `
-    INSERT INTO logs (logvalue) VALUES("Issued book to  user with USN ?")
+    INSERT INTO logs (logvalue) VALUES("Issued book to  user with USN ? Date : ${formattedDate} ${currentTime}")
     `,
     [usn]
   );
     const rslt = JSON.stringify(result);
   return rslt;
 }
+
+
+async function returnBook(tid){
+  const [result] = await pool.query(`
+  UPDATE books
+  SET available_copies = available_copies + 1
+  WHERE book_id = (
+      SELECT book_id
+      FROM transactions
+      WHERE transaction_id = ?
+  );
+  
+  `,[tid]);
+  
+  const rmFromTransactions = await pool.query(`
+  DELETE FROM transactions
+  WHERE transaction_id = ?;
+  
+  `,[tid])
+  const updatelog = await pool.query(
+    `
+    INSERT INTO logs (logvalue) VALUES("Transaction deleted  wid transaction id  ? Date : ${formattedDate} ${currentTime}")
+    `,
+    [tid]
+  );
+  return result;
+};
 
 
 
@@ -344,7 +374,8 @@ module.exports = {
   editUser,
   getLogs,
   issueBook,
-  showUserTransaction
+  showUserTransaction,
+  returnBook
   
 };
 // console.log(getUsers());

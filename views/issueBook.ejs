@@ -52,8 +52,8 @@
                         </td>
                         <td class="dataItem dataItemBtn">                         
                             <form style="z-index: 50 ; display: flex;" action="/issueBook/issue" method="post">
-                                <input type="hidden" name="bookId" value="<%= item.book_id %>">
-                                <input style="width: 6rem;" type="text" name="usn" />
+                                <input type="hidden"  name="bookId" value="<%= item.book_id %>">
+                                <input style="width: 6rem;" id="issueBookInput" type="text" name="usn" />
                                 <button style="background-color: green; color: #fff; width: 3rem;" id="deleteBookBtn" name='deleteBook'>ISSUE</button>
                             </form>
                         </td>

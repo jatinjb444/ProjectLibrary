@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { isValidStudentLogin, showUserTransaction } = require("../database");
+const { isValidStudentLogin, showUserTransaction ,returnBook} = require("../database");
 
 router.get("/", (req, res) => {
   res.render("studentLogin", { messages: req.flash() });
@@ -19,7 +19,8 @@ router.post("/studentLogin", async (req, res) => {
     try {
       const op = await showUserTransaction(studentEid);
       const data = JSON.parse(op);
-      // console.log(data);
+      console.log(data);
+
       if(data.length > 0){
 
         req.flash("success", "Form submitted successfully");
@@ -51,5 +52,21 @@ router.post("/studentLogin", async (req, res) => {
     return res.redirect("/");
   }
 });
+
+router.post("/studentDashboard/returnBook",async(req,res)=>{
+  try{
+
+    const tid = req.body.tid;
+    const result = await returnBook(tid);
+    console.log(result);
+   
+  }
+  catch(err)
+  {
+    console.log(err);
+    
+  }
+ 
+})
 
 module.exports = router;

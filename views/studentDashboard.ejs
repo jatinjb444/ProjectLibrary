@@ -52,7 +52,11 @@
                                 <%= item.due_date %>
                             </td>
                             <td class="dataItem">
-                                <%= item.fine_amount %>
+                                <form action="/studentDashboard/returnBook" method="post">
+                                    <input type="hidden" name="tid" value="<%= item.transaction_id %>"/>
+                                    <button id="returnBookBtn" type="submit" >Return</button>
+                                </form>
+                                
                                 </td>      
                         </tr>
                         <% }); %>
@@ -62,6 +66,5 @@
 
         </div>
     </div>
-    
 </body>
 </html>

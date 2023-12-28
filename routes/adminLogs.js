@@ -8,7 +8,9 @@ router.get("/adminLogs",async(req,res)=>{
 
         const newData = await getLogs();
         const data = JSON.parse(newData);
-        res.render("adminLogs",{data})
+        const len = data.length;
+       
+        res.render("adminLogs",{data, loglen:len})
     }
     catch(err){
         console.log(err);
