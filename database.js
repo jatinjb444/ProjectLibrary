@@ -352,15 +352,6 @@ async function returnBook(tid){
 
 
 
-
-
-
-
-
-
-
-
-
 module.exports = {
   getBooks,
   insertBook,
@@ -378,4 +369,3 @@ module.exports = {
   returnBook
   
 };
-// console.log(getUsers());
