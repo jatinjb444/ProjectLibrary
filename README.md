@@ -17,3 +17,6 @@ step3: install nodemon by
 
       If you don't want to install nodemon run the following command 
       -> node app.js
+
+
+> output.pdf is the generated id card of a particular user that gets stored in the local machine storage.
