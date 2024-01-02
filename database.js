@@ -128,7 +128,7 @@ async function isValidStudentLogin(usn, password) {
     return -2;
     // password is invalid
   }
-  console.log(result);
+  // console.log(result);
 }
 async function isValidAdminLogin(email, password) {
   const [result] = await pool.query(

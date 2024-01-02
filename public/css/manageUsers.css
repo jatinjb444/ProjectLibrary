@@ -62,7 +62,7 @@ table{
 
 .tableHeader{
     /* border:5px solid red; */
-    width: 90%;
+    width: 100%;
     background-color: blue;
     display: flex;
     flex-direction: row;
@@ -79,7 +79,7 @@ table{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 90%;
+    width: 100%;
     background-color: orange;
     padding : 0.7rem 0;
     border-bottom:1px solid #000;
@@ -141,10 +141,10 @@ button{
     border-radius: 5px;
     border:none;
     /* margin:5px; */
-    background-color: rgb(17, 255, 0);
+    /* background-color: rgb(17, 255, 0); */
     cursor: pointer;
-    height: 2rem;
-    width: 5.5rem;
+    /* height: 2rem; */
+    /* width: 5.5rem; */
     outline: none;
     
 }
@@ -173,12 +173,19 @@ input::placeholder{
 }
 #closeAddWin{
     background-color: red;
+    height: 2rem;
+    width: 6rem;
+
 }
 #addBookBtn{
     background-color: rgb(16, 189, 16);
+    height: 3rem;
+    width: 6rem;
 }
 #addUser{
     background-color:rgb(16, 189, 16) ;
+    height: 2rem;
+    width: 6rem;
 }
 .deleteBook{
     color: red;
@@ -187,6 +194,8 @@ input::placeholder{
 }
 .submitbtn{
     background-color: greenyellow;
+    height: 2rem;
+    width: 6rem;
 }
 #editbtn{
     font-size: 1rem;

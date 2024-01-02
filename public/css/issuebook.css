@@ -4,3 +4,7 @@ input::placeholder{
 input{
     color: black;
 }
+
+.tableHeader{
+    z-index: 100;
+}

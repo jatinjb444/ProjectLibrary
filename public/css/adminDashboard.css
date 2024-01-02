@@ -92,21 +92,22 @@ h1 {
     overflow-y:hidden ;
     border-radius: 10px;
     /* width: 2rem; */
-    flex: 1;
+    flex: 0.55  ;
 }
 
 .op{
-    display: flex;
+    display: flex;  
     align-items: center;
     justify-content: center;
-    flex-direction: row;
+    /* flex-direction: row; */
     background-color:#0015fecf ;
     height:4rem;
-    width: 20rem;
-    margin:2rem;    
+    width: 8rem;
+    /* margin:2rem;     */
     border-radius: 10px;
     overflow: hidden;
     transition: all ease-in-out 0.9s;
+    color: #fff;
  
 }
 .fa-circle-arrow-right{
@@ -126,10 +127,6 @@ h1 {
     color:orange;
 }
 
-.optext{
-    color:#fff;
-    margin-bottom: 10px;
-}
 
 #quote-text{
     font-size: 15px;
@@ -138,7 +135,7 @@ h1 {
 
 #lgbtn{
     height: 4rem;
-    width: 11rem;
+    width: 7rem;
     font-size: 15px;
     background-color:orange;
     border: none;
@@ -149,6 +146,11 @@ h1 {
 #lgbtn:hover{
     background-color: blue;
     color: white;
+}
+
+.op a{
+    color: #fff;
+    text-decoration: none;
 }
 
 .pagecontainer{

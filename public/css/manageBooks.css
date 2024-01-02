@@ -205,7 +205,7 @@ table{
 }
 .tableHeader{
     /* border:5px solid red; */
-    width: 90%;
+    width: 100%;
     background-color: blue;
     display: flex;
     flex-direction: row;
@@ -215,7 +215,7 @@ table{
     top: 0;
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
-    /* z-index: 3; */
+    /* z-index: 10; */
 
 }
 
@@ -224,7 +224,7 @@ table{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 90%;
+    width: 100%;
     background-color: orange;
     padding : 0.7rem 0;
     border-bottom:1px solid #000;
