@@ -1,26 +1,8 @@
-CREATE DATABASE test;
-USE test;
-
-CREATE TABLE books(
-    bookId INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    bookName VARCHAR(255) NOT NULL ,
-    authorName VARCHAR(255) NOT NULL,
-    bookCategory VARCHAR(50) NOT NULL 
-);
-
-CREATE TABLE studentLogin(
-    USN VARCHAR(12) PRIMARY KEY,
-    password VARCHAR(20),
-    lastLogin DATETIME
-);
-
-
 CREATE TABLE adminLogin(
     email VARCHAR(50) PRIMARY KEY,
     password VARCHAR(20)
 );
 
----------------------------------
 
 CREATE TABLE books (
     book_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -46,6 +28,7 @@ CREATE TABLE user_logins (
     password VARCHAR(255) NOT NULL,
     FOREIGN KEY (usn) REFERENCES users(usn)
 );
+
 CREATE TABLE transactions (
     transaction_id INT PRIMARY KEY AUTO_INCREMENT,
     usn CHAR(12),
@@ -62,3 +45,17 @@ CREATE TABLE logs(
     logid INT PRIMARY KEY AUTO_INCREMENT,
     logvalue VARCHAR(300)
 );
+
+DELIMITER //
+
+CREATE TRIGGER after_user_login
+AFTER UPDATE ON user_logins
+FOR EACH ROW
+BEGIN
+    IF NEW.last_login IS NOT NULL THEN
+        INSERT INTO logs (logvalue)
+        VALUES (CONCAT('User with USN ', NEW.usn, ' logged in at ', NEW.last_login));
+    END IF;
+END //
+
+DELIMITER ;
