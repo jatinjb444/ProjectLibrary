@@ -1,1 +1,37 @@
 node_modules.env
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+# OS & editor files
+.DS_Store
+*.swp
+*.swo
+.vscode/
+
+# Runtime files
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage / build
+coverage/
+build/
+dist/
+
+# IDEs
+.idea/
+*.iml
+
+# Optional: ignore SQLite or DBs (if used)
+*.sqlite
+*.db
+
