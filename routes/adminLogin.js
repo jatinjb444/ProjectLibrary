@@ -28,12 +28,12 @@ function getDate() {
     return formattedDate;
   }
 
-  var category = "education";
+ var category = "love";
   var qte = "";
   
   request.get(
     {
-      url: "https://api.api-ninjas.com/v1/quotes?category=" + category,
+      url: "https://api.api-ninjas.com/v1/quotes",
       headers: {
         "X-Api-Key": "f/LlTnZI+FEVME3A7ZYOrw==5kEIq27BSh3vYdxx",
       },

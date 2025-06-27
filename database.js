@@ -1,20 +1,22 @@
 const mysql = require("mysql2");
 const dotenv = require("dotenv");
 dotenv.config();
+console.log("DB ENV DEBUG — USER:", process.env.USER);
+console.log("DB ENV DEBUG — PASSWORD:", process.env.PASSWORD);
+
 
 const currentDate = new Date();
 const formattedDate = currentDate.toISOString().slice(0, 10);
 const currentTime = currentDate.toLocaleTimeString();
 
-const pool = mysql
-  .createPool({
-    host: process.env.HOST_NAME,
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE,
-  })
-  .promise();
-
+console.log('Using DB user:', process.env.USER); // TEMP DEBUG
+const pool = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  port: process.env.DB_PORT,
+}).promise();
 async function getBooks() {
   const [rows] = await pool.query("SELECT * FROM books");
   return JSON.stringify(rows);

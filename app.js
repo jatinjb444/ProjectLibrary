@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 
-const port = process.env.PORT || 4000;
+const PORT = process.env.APP_PORT || 4000;
 
 
 // handling routes of student login ----------------
@@ -56,6 +56,7 @@ app.use("/",issueBook);
 
 
 
-app.listen(4000, () => {
-  console.log(`Server running on https://localhost:${port} `);
+
+app.listen(PORT, () => {
+  console.log(`Server running on https://localhost:${PORT}`);
 });
